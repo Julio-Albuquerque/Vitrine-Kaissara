@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="Guia do hóspede · exemplo feito pela Kaissara">
+<meta property="og:title" content="Guia do hóspede · Casa Maré Mansa">
+<meta property="og:description" content="Exemplo de guia digital em português, inglês e espanhol, feito pela Kaissara (Ubatuba).">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}
+.cover{position:relative;margin:16px 0 18px;border-radius:18px;overflow:hidden;height:0;padding-top:75%;max-width:100%;background:linear-gradient(160deg,var(--sea),var(--sun))}
+.cover img{position:absolute;top:0;left:0}
+.cover img,.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.cover img{position:absolute;top:0;left:0}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 6px}
+.gal figure{margin:0;min-width:0}
+.gal .ph{position:relative;height:0;padding-top:100%;border-radius:12px;overflow:hidden;background:linear-gradient(160deg,var(--chip),var(--line))}
+.gal figcaption{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.3}
+.credit{display:block;margin-top:6px;font-size:11px;opacity:.8}
+
+.rooms{display:flex;flex-direction:column;gap:14px;margin:4px 0 22px}
+.rooms h2{font-family:var(--display);font-weight:800;font-size:24px;margin:6px 0 0}
+.rooms .lead{margin:0;color:var(--muted)}
+.room{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.room .ph{position:relative;height:0;padding-top:62.5%;max-width:100%;background:linear-gradient(160deg,var(--chip),var(--line))}
+.room .ph img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block}
+.room .tx{padding:14px 16px 16px;min-width:0}
+.room h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 6px}
+.room p{margin:0 0 10px}
+.room .items{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.room .items li{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:13px}
+
+.pix{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--chip);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.pix small{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.pix code{font:700 15px ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+.pix .copy{background:var(--sea);color:var(--sea-ink)}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted)}
+</style>
+<title>Guia Casa Maré Mansa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: uma coluna estreita como um app de celular; cabeçalho com idioma fixo no topo, seções em blocos que o hóspede abre */
+:root{
+  --bg:#f3f6f5; --surface:#ffffff; --fg:#0f2a2e; --muted:#51696c; --line:#d6e1df;
+  --sea:#0c5d63; --sea-ink:#ffffff; --sun:#f2b632; --chip:#e3efed;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1a1c; --surface:#122629; --fg:#e6f0ee; --muted:#9db3b2; --line:#24403f;
+  --sea:#5fc1c4; --sea-ink:#06292c; --sun:#f2c14e; --chip:#183337; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1a1c; --surface:#122629; --fg:#e6f0ee; --muted:#9db3b2; --line:#24403f;
+  --sea:#5fc1c4; --sea-ink:#06292c; --sun:#f2c14e; --chip:#183337; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);z-index:10;background:var(--sea)}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.demo{background:var(--sun);color:#2a2000;font-size:13px;text-align:center;padding:6px 16px;font-weight:700}
+header.top{position:-webkit-sticky;position:sticky;top:0;z-index:5;background:var(--sea);color:var(--sea-ink)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.2px}
+.langs{display:flex;gap:4px}
+.langs button{font:700 13px var(--body);border:1px solid currentColor;background:transparent;color:var(--sea-ink);border-radius:999px;padding:4px 10px;cursor:pointer;opacity:.75}
+.langs button[aria-pressed="true"]{background:var(--sea-ink);color:var(--sea);opacity:1}
+.langs button:focus-visible,.card summary:focus-visible,.copy:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.hero{padding-block:22px 6px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:34px;line-height:1.1;margin:0 0 6px}
+.hero p{margin:0;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 8px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.fact b{display:block;font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+.fact span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wifi{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sea);color:var(--sea-ink);border-radius:14px;padding:14px 16px;margin:12px 0 18px;flex-wrap:wrap}
+.wifi small{display:block;opacity:.8;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.wifi code{font:700 17px ui-monospace,Menlo,Consolas,monospace}
+.copy{font:700 14px var(--body);background:var(--sea-ink);color:var(--sea);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+.list{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.card summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:18px}
+.card summary::-webkit-details-marker{display:none}
+.card summary::after{content:"+";font-size:22px;color:var(--sea)}
+.card[open] summary::after{content:"–"}
+.card .in{padding:0 16px 16px;min-width:0}
+.card ul,.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row span:last-child{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;background:var(--chip);color:var(--fg);font-size:12px;border-radius:999px;padding:2px 8px;margin-left:6px}
+.sos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sos div{background:var(--chip);border-radius:10px;padding:10px;text-align:center}
+.sos b{display:block;font-family:var(--display);font-size:24px}
+.sos span{font-size:13px;color:var(--muted)}
+footer{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
+@media (max-width:380px){.facts{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="demo" data-t="demo"></div>
+<header class="top"><div class="wrap">
+  <div class="brand">Casa Maré Mansa</div>
+  <div class="langs" role="group" aria-label="Idioma">
+    <button id="l-pt" data-l="pt" aria-pressed="true">PT</button>
+    <button id="l-en" data-l="en" aria-pressed="false">EN</button>
+    <button id="l-es" data-l="es" aria-pressed="false">ES</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <figure class="cover"><img src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&w=1100&q=72" alt="Casa de madeira com rede pendurada na árvore" loading="lazy" onerror="this.remove()"></figure>
+    <h1 data-t="h1"></h1>
+    <p data-t="sub"></p>
+    <div class="facts">
+      <div class="fact"><b>14h</b><span data-t="in"></span></div>
+      <div class="fact"><b>11h</b><span data-t="out"></span></div>
+      <div class="fact"><b data-t="beachB"></b><span data-t="beach"></span></div>
+    </div>
+  </section>
+
+  <div class="wifi">
+    <div><small>Wi-Fi · MareMansa_5G</small><code id="pw">caicara2026</code></div>
+    <button class="copy" id="copy" data-t="copy"></button>
+  </div>
+
+  <section class="rooms" aria-labelledby="rooms-h">
+    <h2 id="rooms-h" data-t="roomsH"></h2>
+    <p class="lead" data-t="roomsLead"></p>
+    <div id="rooms" class="rooms" style="margin:0"></div>
+  </section>
+
+  <div class="list">
+    <details class="card" open><summary data-t="s1"></summary><div class="in"><ol data-l-list="arrive"></ol></div></details>
+    <details class="card"><summary data-t="s2"></summary><div class="in"><ul data-l-list="house"></ul></div></details>
+    <details class="card"><summary data-t="s3"></summary><div class="in"><ul data-l-list="rules"></ul></div></details>
+    <details class="card"><summary data-t="s4"></summary><div class="in" id="beaches"></div></details>
+    <details class="card"><summary data-t="s5"></summary><div class="in"><ul data-l-list="near"></ul></div></details>
+    <details class="card"><summary data-t="s8"></summary><div class="in">
+      <div class="pix"><div style="min-width:0"><small data-t="pixL"></small><code id="pixkey">reservas@maremansa.com.br</code><small data-t="pixN" style="text-transform:none;letter-spacing:0;margin-top:2px"></small></div><button class="copy" id="copypix" data-t="copyPix"></button></div>
+      <ul data-l-list="pay"></ul>
+      <p class="note" data-t="payNote"></p>
+    </div></details>
+    <details class="card"><summary data-t="s6"></summary><div class="in"><ol data-l-list="checkout"></ol></div></details>
+    <details class="card"><summary data-t="s7"></summary><div class="in">
+      <div class="sos"><div><b>192</b><span>SAMU</span></div><div><b>193</b><span data-t="fire"></span></div><div><b>190</b><span data-t="police"></span></div></div>
+      <p data-t="host" style="margin:12px 0 0"></p>
+    </div></details>
+  </div>
+
+  <footer><span data-t="foot"></span><span class="credit" data-t="cred"></span></footer>
+</main>
+
+<script>
+const T={
+pt:{s8:"Formas de pagamento",pixL:"Chave PIX (e-mail)",pixN:"Favorecida: Marina S. · Banco do Brasil",copyPix:"Copiar chave",copiedPix:"Chave copiada!",pay:["Reserva: sinal de 50% no PIX para garantir as datas.","Restante: até o dia do check-in, no PIX ou no cartão.","Cartão de crédito: em até 3x sem juros, pelo link de pagamento que a anfitriã envia no WhatsApp.","Dinheiro: só para extras durante a estadia (gás, lenha, serviço de limpeza a mais).","Depois de pagar, mande o comprovante no WhatsApp da anfitriã."],payNote:"A taxa de limpeza já está incluída no valor. Cancelamento com até 15 dias de antecedência: devolução do sinal.",roomsH:"Conheça a casa",roomsLead:"Três quartos, até 8 pessoas, de frente para a Praia do Português. Veja o que tem em cada canto.",g1:"Varanda com vista",g2:"Suíte de casal",g3:"Sala",cred:"Fotos ilustrativas (Unsplash). No guia do cliente entram as fotos da casa dele.",demo:"EXEMPLO · casa fictícia para mostrar como fica o seu guia",h1:"Bem-vindos à Casa Maré Mansa",sub:"Tudo o que vocês precisam durante a estadia, num só lugar. Salve este link no celular.",in:"Check-in",out:"Check-out",beach:"ao mar",beachB:"Frente",copy:"Copiar senha",copied:"Copiado!",
+s1:"Chegada",s2:"Como funciona a casa",s3:"Regras da casa",s4:"Praias perto",s5:"Mercado, padaria e farmácia",s6:"Antes de ir embora",s7:"Emergência e contato",fire:"Bombeiros",police:"Polícia",
+host:"Anfitriã: Marina · WhatsApp (12) 90000-0000 · responde das 8h às 22h.",foot:"Guia feito pela Kaissara · Ubatuba · WhatsApp (12) 99138-6160",
+arrive:["O portão é cinza, número 120. O controle está na caixinha com senha 4821, à esquerda do interfone.","A última subida é de terra: vá devagar, carro baixo passa.","Vaga para 2 carros dentro do quintal.","Chegou? Manda um “chegamos” no WhatsApp da anfitriã."],
+house:["Chuveiro a gás: abra a água quente primeiro e espere 20 segundos.","Gás reserva atrás da lavanderia. Acabou o principal? É só trocar a mangueira ou chamar a anfitriã.","Ar-condicionado: deixe em 23 °C e com a janela fechada.","Chuveiro externo na frente da casa: use para tirar a areia antes de entrar.","Churrasqueira: carvão não incluso. Compre no mercado da Itamambuca antes de subir."],
+rules:["Lotação máxima: 8 pessoas.","Silêncio das 22h às 8h (lei municipal e vizinhos com criança).","Não é permitido festa ou evento.","Animais só com combinação prévia.","Lixo: reciclável no saco azul. A coleta passa terça, quinta e sábado."],
+near:["Mercado: 10 min de carro, na Itamambuca. Faça as compras grandes antes de subir.","Padaria: 10 min de carro, pão quente às 7h e às 16h.","Farmácia 24h: cerca de 25 min de carro, no centro de Ubatuba."],
+checkout:["Louça lavada ou na lava-louças ligada.","Lixo nos tambores da calçada.","Ar-condicionado e luzes desligados.","Controle do portão de volta na caixinha.","Saída até 11h. Precisa de mais tempo? Pergunte, às vezes dá."],
+beachHead:["Praia","A pé","Bom para"]},
+en:{s8:"Payment",pixL:"PIX key (email)",pixN:"Payee: Marina S. · Banco do Brasil",copyPix:"Copy key",copiedPix:"Key copied!",pay:["Booking: 50% deposit via PIX to hold your dates.","Balance: by check-in day, via PIX or card.","Credit card: up to 3 interest-free installments through the payment link the host sends on WhatsApp (international cards accepted).","Cash: only for extras during your stay (gas, firewood, extra cleaning).","After paying, send the receipt to the host on WhatsApp."],payNote:"Cleaning fee is already included. Cancel up to 15 days before arrival for a deposit refund.",roomsH:"Get to know the house",roomsLead:"Three bedrooms, up to 8 guests, facing Praia do Português. Here is what you’ll find in each space.",g1:"Balcony with a view",g2:"Double suite",g3:"Living room",cred:"Illustrative photos (Unsplash).",demo:"SAMPLE · fictional house showing how your guide will look",h1:"Welcome to Casa Maré Mansa",sub:"Everything you need during your stay, in one place. Save this link on your phone.",in:"Check-in",out:"Check-out",beach:"front",beachB:"Beach",copy:"Copy password",copied:"Copied!",
+s1:"Arriving",s2:"How the house works",s3:"House rules",s4:"Beaches nearby",s5:"Market, bakery and pharmacy",s6:"Before you leave",s7:"Emergency and contact",fire:"Fire dept.",police:"Police",
+host:"Host: Marina · WhatsApp +55 12 90000-0000 · answers 8 am to 10 pm.",foot:"Guide made by Kaissara · Ubatuba · WhatsApp +55 12 99138-6160",
+arrive:["Grey gate, number 120. The remote is in the lockbox (code 4821), left of the intercom.","The last stretch is a dirt road uphill: drive slowly, small cars make it.","Parking for 2 cars inside the yard.","Arrived? Send a quick “we’re here” to the host on WhatsApp."],
+house:["Gas shower: turn on the hot water first and wait 20 seconds.","Spare gas tank behind the laundry. If the main one runs out, swap the hose or call the host.","Air conditioning: keep it at 23 °C with the window closed.","Outdoor shower out front: please rinse off the sand before coming in.","Barbecue: charcoal not included. Buy it at the Itamambuca market on your way."],
+rules:["Maximum 8 guests.","Quiet hours 10 pm to 8 am (city law, and neighbors with kids).","No parties or events.","Pets only if agreed in advance.","Trash: recyclables in the blue bag. Pickup on Tuesday, Thursday and Saturday."],
+near:["Market: 10 min by car, in Itamambuca. Do your big shopping before you arrive.","Bakery: 10 min by car, fresh bread at 7 am and 4 pm.","24h pharmacy: about 25 min by car, in downtown Ubatuba."],
+checkout:["Dishes washed or dishwasher running.","Trash in the bins by the sidewalk.","AC and lights off.","Gate remote back in the lockbox.","Check-out by 11 am. Need more time? Just ask."],
+beachHead:["Beach","Walk","Good for"]},
+es:{s8:"Formas de pago",pixL:"Clave PIX (e-mail)",pixN:"Titular: Marina S. · Banco do Brasil",copyPix:"Copiar clave",copiedPix:"¡Clave copiada!",pay:["Reserva: seña del 50% por PIX para asegurar las fechas.","Saldo: hasta el día del check-in, por PIX o con tarjeta.","Tarjeta de crédito: hasta 3 cuotas sin interés, con el link de pago que la anfitriona envía por WhatsApp (se aceptan tarjetas extranjeras).","Efectivo: solo para extras durante la estadía (gas, leña, limpieza adicional).","Después de pagar, envíen el comprobante por WhatsApp a la anfitriona."],payNote:"La tarifa de limpieza ya está incluida. Cancelación hasta 15 días antes: se devuelve la seña.",roomsH:"Conozcan la casa",roomsLead:"Tres dormitorios, hasta 8 personas, frente a la Praia do Português. Esto es lo que hay en cada espacio.",g1:"Balcón con vista",g2:"Suite doble",g3:"Living",cred:"Fotos ilustrativas (Unsplash).",demo:"EJEMPLO · casa ficticia para mostrar cómo queda tu guía",h1:"Bienvenidos a Casa Maré Mansa",sub:"Todo lo que necesitan durante la estadía, en un solo lugar. Guarden este link en el celular.",in:"Check-in",out:"Check-out",beach:"al mar",beachB:"Frente",copy:"Copiar clave",copied:"¡Copiado!",
+s1:"Llegada",s2:"Cómo funciona la casa",s3:"Reglas de la casa",s4:"Playas cerca",s5:"Mercado, panadería y farmacia",s6:"Antes de irse",s7:"Emergencias y contacto",fire:"Bomberos",police:"Policía",
+host:"Anfitriona: Marina · WhatsApp +55 12 90000-0000 · responde de 8 a 22 h.",foot:"Guía hecha por Kaissara · Ubatuba · WhatsApp +55 12 99138-6160",
+arrive:["El portón es gris, número 120. El control está en la cajita con clave 4821, a la izquierda del portero.","La última subida es de tierra: vayan despacio, un auto bajo pasa.","Lugar para 2 autos dentro del patio.","¿Llegaron? Manden un “llegamos” por WhatsApp a la anfitriona."],
+house:["Ducha a gas: abran primero el agua caliente y esperen 20 segundos.","Garrafa de repuesto detrás del lavadero. Si se acaba la principal, cambien la manguera o llamen a la anfitriona.","Aire acondicionado: déjenlo en 23 °C y con la ventana cerrada.","Ducha exterior adelante: úsenla para sacarse la arena antes de entrar.","Parrilla: el carbón no está incluido. Cómprenlo en el mercado de Itamambuca antes de llegar."],
+rules:["Máximo 8 personas.","Silencio de 22 a 8 h (ley municipal y vecinos con niños).","No se permiten fiestas ni eventos.","Mascotas solo con acuerdo previo.","Basura: reciclable en la bolsa azul. Recolección martes, jueves y sábado."],
+near:["Mercado: 10 min en auto, en Itamambuca. Hagan las compras grandes antes de llegar.","Panadería: 10 min en auto, pan caliente a las 7 y a las 16 h.","Farmacia 24 h: unos 25 min en auto, en el centro de Ubatuba."],
+checkout:["Vajilla lavada o lavavajillas encendido.","Basura en los tachos de la vereda.","Aire y luces apagados.","Control del portón de vuelta en la cajita.","Salida hasta las 11 h. ¿Necesitan más tiempo? Pregunten."],
+beachHead:["Playa","A pie","Ideal para"]}
+};
+const ROOMS=[{"img": "https://images.unsplash.com/photo-1604629761628-5640ee399e18?auto=format&fit=crop&w=800&q=72", "alt": "Poltrona de vime e violão na varanda", "t": {"pt": {"t": "Varanda", "d": "O lugar preferido dos hóspedes no fim da tarde. Coberta, com vento do mar e vista para o verde da mata. Tem poltrona de vime, rede de algodão e um violão à disposição. Dá para tomar café da manhã aqui ouvindo os passarinhos.", "i": ["Rede de algodão", "Poltronas de vime", "Violão", "Tomada para carregar celular", "Luz amarela à noite"]}, "en": {"t": "Porch", "d": "Our guests’ favorite spot at sunset. Covered, with a sea breeze and a view of the green forest. Wicker armchair, cotton hammock and a guitar to play. Great for breakfast while the birds sing.", "i": ["Cotton hammock", "Wicker armchairs", "Guitar", "Phone charging outlet", "Warm lights at night"]}, "es": {"t": "Galería", "d": "El lugar favorito de los huéspedes al atardecer. Techada, con brisa del mar y vista a la selva. Sillón de mimbre, hamaca de algodón y una guitarra. Ideal para desayunar escuchando a los pájaros.", "i": ["Hamaca de algodón", "Sillones de mimbre", "Guitarra", "Enchufe para cargar el celular", "Luz cálida de noche"]}}}, {"img": "https://images.unsplash.com/photo-1590725175785-de025cc60835?auto=format&fit=crop&w=800&q=72", "alt": "Sala clara com sofá branco e plantas", "t": {"pt": {"t": "Sala de estar", "d": "Sala clara e ventilada, com sofá grande de três lugares que vira cama para mais uma pessoa. Smart TV com Netflix e YouTube (use a sua conta), ventilador de teto e muitas plantas. Na estante tem jogos de tabuleiro e livros para dias de chuva.", "i": ["Smart TV 50\"", "Sofá-cama", "Ventilador de teto", "Jogos de tabuleiro", "Livros e mapas da região"]}, "en": {"t": "Living room", "d": "Bright, airy living room with a large three-seat sofa that turns into a bed for one more guest. Smart TV with Netflix and YouTube (log in with your account), ceiling fan and lots of plants. Board games and books on the shelf for rainy days.", "i": ["50\" smart TV", "Sofa bed", "Ceiling fan", "Board games", "Books and local maps"]}, "es": {"t": "Living", "d": "Living luminoso y aireado, con un sofá grande de tres cuerpos que se convierte en cama para una persona más. Smart TV con Netflix y YouTube (usen su cuenta), ventilador de techo y muchas plantas. En la estantería hay juegos de mesa y libros para días de lluvia.", "i": ["Smart TV 50\"", "Sofá cama", "Ventilador de techo", "Juegos de mesa", "Libros y mapas de la zona"]}}}, {"img": "https://images.unsplash.com/photo-1661069540645-fda115a217ae?auto=format&fit=crop&w=800&q=72", "alt": "Cama de dossel com cortinas leves e plantas", "t": {"pt": {"t": "Suíte principal", "d": "Cama queen com dossel e cortinas leves, enxoval branco de algodão e travesseiros extras no armário. Ar-condicionado silencioso, cortina blackout para dormir até tarde e banheiro privativo com chuveiro a gás bem forte.", "i": ["Cama queen", "Ar-condicionado", "Blackout", "Banheiro privativo", "Toalhas de banho e de rosto"]}, "en": {"t": "Main suite", "d": "Queen bed with a canopy and light curtains, white cotton linens and extra pillows in the closet. Quiet air conditioning, blackout curtains to sleep in, and a private bathroom with a strong gas shower.", "i": ["Queen bed", "Air conditioning", "Blackout curtains", "Private bathroom", "Bath and face towels"]}, "es": {"t": "Suite principal", "d": "Cama queen con dosel y cortinas livianas, ropa de cama blanca de algodón y almohadas extra en el placard. Aire acondicionado silencioso, cortina blackout para dormir hasta tarde y baño privado con ducha a gas bien fuerte.", "i": ["Cama queen", "Aire acondicionado", "Blackout", "Baño privado", "Toallas de baño y de mano"]}}}, {"img": "https://images.unsplash.com/photo-1713365829670-d8df1e593248?auto=format&fit=crop&w=800&q=72", "alt": "Mesa de jantar com cadeiras", "t": {"pt": {"t": "Cozinha e mesa de jantar", "d": "Cozinha completa para quem gosta de cozinhar o peixe fresco da peixaria. Mesa para 8 pessoas. Tem fogão de 4 bocas com forno, micro-ondas, geladeira duplex, liquidificador, cafeteira e panelas de todos os tamanhos. Óleo, sal, açúcar e café para o primeiro dia.", "i": ["Fogão com forno", "Micro-ondas", "Geladeira duplex", "Cafeteira", "Mesa para 8", "Kit primeiro dia"]}, "en": {"t": "Kitchen and dining", "d": "Fully equipped kitchen for cooking the fresh fish from the local market. Table for 8. Four-burner stove with oven, microwave, double-door fridge, blender, coffee maker and pots of every size. Oil, salt, sugar and coffee for your first day.", "i": ["Stove with oven", "Microwave", "Double-door fridge", "Coffee maker", "Table for 8", "First-day kit"]}, "es": {"t": "Cocina y comedor", "d": "Cocina completa para cocinar el pescado fresco de la pescadería. Mesa para 8. Cocina de 4 hornallas con horno, microondas, heladera doble, licuadora, cafetera y ollas de todos los tamaños. Aceite, sal, azúcar y café para el primer día.", "i": ["Cocina con horno", "Microondas", "Heladera doble", "Cafetera", "Mesa para 8", "Kit primer día"]}}}, {"img": "", "alt": "Vista do mar a partir da casa de praia", "t": {"pt": {"t": "De frente para a praia", "d": "A casa fica no alto do costão, de frente para a Praia do Português, uma prainha escondida ao lado da Praia do Félix. Lá embaixo o mar verde-esmeralda forma uma piscina natural, ótima para nadar e mergulhar com máscara. A descida até a areia é uma trilha curta pelas pedras: vá na maré baixa e de chinelo firme. Na frente da casa tem churrasqueira coberta e um chuveirinho para tirar a areia.", "i": ["Vista para o mar", "Piscina natural", "Trilha curta até a areia", "Churrasqueira coberta", "Chuveiro externo"]}, "en": {"t": "Right on the beach", "d": "The house sits up on the rocky shore, facing Praia do Português, a hidden little beach next to Praia do Félix. Down below, the emerald water forms a natural pool, great for swimming and snorkeling. Getting to the sand is a short path over the rocks: go at low tide and wear sturdy sandals. Out front there’s a covered barbecue and an outdoor shower to rinse off the sand.", "i": ["Sea view", "Natural pool", "Short path to the sand", "Covered barbecue", "Outdoor shower"]}, "es": {"t": "Frente a la playa", "d": "La casa está en lo alto del acantilado, frente a la Praia do Português, una playita escondida al lado de la Praia do Félix. Abajo, el mar verde esmeralda forma una pileta natural, ideal para nadar y hacer snorkel. Para bajar a la arena hay un sendero corto por las piedras: vayan con marea baja y con ojotas firmes. Adelante hay parrilla techada y una ducha exterior para sacarse la arena.", "i": ["Vista al mar", "Pileta natural", "Sendero corto a la arena", "Parrilla techada", "Ducha exterior"]}}}];
+const BEACH={"pt": [["Português", "em frente", "piscina natural, snorkel"], ["Félix", "5 min a pé", "areia grande, quiosque"], ["Conchas", "trilha de 20 min", "praia deserta"], ["Itamambuca", "10 min de carro", "surfe"]], "en": [["Português", "right here", "natural pool, snorkeling"], ["Félix", "5 min walk", "wide sand, beach bar"], ["Conchas", "20 min trail", "deserted beach"], ["Itamambuca", "10 min drive", "surf"]], "es": [["Português", "enfrente", "pileta natural, snorkel"], ["Félix", "5 min a pie", "arena amplia, parador"], ["Conchas", "sendero de 20 min", "playa desierta"], ["Itamambuca", "10 min en auto", "surf"]]};
+let lang="pt";
+function render(){
+  const t=T[lang]; document.documentElement.lang=lang==="pt"?"pt-BR":lang;
+  document.querySelectorAll("[data-t]").forEach(e=>{e.textContent=t[e.dataset.t]});
+  document.querySelectorAll("[data-l-list]").forEach(e=>{e.innerHTML="";t[e.dataset.lList].forEach(x=>{const li=document.createElement("li");li.textContent=x;e.appendChild(li)})});
+  const b=document.getElementById("beaches"); b.innerHTML="";
+  BEACH[lang].forEach(([n,w,g])=>{const r=document.createElement("div");r.className="row";r.innerHTML=`<span><b></b><span class="tag"></span></span><span></span>`;r.querySelector("b").textContent=n;r.querySelector(".tag").textContent=w;r.lastChild.textContent=g;b.appendChild(r)});
+  const R=document.getElementById("rooms"); R.innerHTML="";
+  ROOMS.forEach(r=>{const c=r.t[lang];const a=document.createElement("article");a.className="room";
+    a.innerHTML=(r.img?'<div class="ph"><img loading="lazy" onerror="this.remove()"></div>':'')+'<div class="tx"><h3></h3><p></p><ul class="items"></ul></div>';
+    if(r.img){const im=a.querySelector("img");im.src=r.img;im.alt=r.alt;}
+    a.querySelector("h3").textContent=c.t;a.querySelector("p").textContent=c.d;
+    c.i.forEach(x=>{const li=document.createElement("li");li.textContent=x;a.querySelector(".items").appendChild(li)});
+    R.appendChild(a)});
+  document.querySelectorAll(".langs button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.l===lang));
+}
+document.querySelectorAll(".langs button").forEach(x=>x.addEventListener("click",()=>{lang=x.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){};render()}));
+try{const s=localStorage.getItem("lang");if(s&&T[s])lang=s}catch(e){}
+document.getElementById("copy").addEventListener("click",async e=>{
+  const btn=e.currentTarget;
+  try{await navigator.clipboard.writeText(document.getElementById("pw").textContent);btn.textContent=T[lang].copied;setTimeout(()=>btn.textContent=T[lang].copy,1500)}
+  catch(err){const r=document.createRange();r.selectNodeContents(document.getElementById("pw"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+document.getElementById("copypix").addEventListener("click",async e=>{
+  const btn=e.currentTarget;
+  try{await navigator.clipboard.writeText(document.getElementById("pixkey").textContent);btn.textContent=T[lang].copiedPix;setTimeout(()=>btn.textContent=T[lang].copyPix,1500)}
+  catch(err){const r=document.createRange();r.selectNodeContents(document.getElementById("pixkey"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+render();
+</script>
+
+</body>
+</html>
